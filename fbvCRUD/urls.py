@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from fbvCRUDApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.getStudents),
+    path('create-student/', views.createStudent),
+    path('delete-student/<int:id>', views.deleteStudent),
+    path('update-student/<int:id>', views.updateStudent),
 ]

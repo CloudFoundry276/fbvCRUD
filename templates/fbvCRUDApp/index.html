@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students List</title>
+</head>
+<body>
+    <a href="/create-student">Create Student</a>
+    <h1>List of Students</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Test Score</th>
+                <th>Op Del</th>
+                <th>Op Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if students %}
+            {% for student in students %}
+            <tr>
+                <td>{{student.id}}</td>
+                <td>{{student.firstName}}</td>
+                <td>{{student.lastName}}</td>
+                <td>{{student.testScore}}</td>
+                <td><a href="/delete-student/{{student.id}}">Delete</a></td>
+                <td><a href="/update-student/{{student.id}}">Update</a></td>
+            </tr>
+            {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="5">No Data Found</td>
+        </tr>
+        {% endif %}
+        </tbody>
+    </table>
+</body>
+</html>

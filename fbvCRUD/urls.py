@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from fbvCRUDApp import views
 
 urlpatterns = [
@@ -23,4 +23,6 @@ urlpatterns = [
     path('create-student/', views.createStudent),
     path('delete-student/<int:id>', views.deleteStudent),
     path('update-student/<int:id>', views.updateStudent),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('logout/', views.logout),
 ]
